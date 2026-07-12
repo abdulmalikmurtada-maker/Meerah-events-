@@ -304,38 +304,38 @@ function getFormData() {
 }
 function sendWhatsApp() {
   var d = getFormData(); if (!d) return;
-  var message = 'EVENT BOOKING - Beautify Your Event by Meerah
+var message = `EVENT BOOKING - Beautify Your Event by Meerah
 
 Assalamu Alaikum,
 
-Name: ' + d.name + '
-Phone: ' + d.phone + '
-Event Type: ' + d.evt + '
-Date: ' + (d.date||'Not specified') + '
-Location: ' + (d.loc||'Not specified') + '
-Package(s): ' + (d.pkg||'To be discussed') + '
-' + (d.msg?'Message: '+d.msg:'') + '
+Name: ${d.name}
+Phone: ${d.phone}
+Event Type: ${d.evt}
+Date: ${d.date || 'Not specified'}
+Location: ${d.loc || 'Not specified'}
+Package(s): ${d.pkg || 'To be discussed'}
+Message: ${d.msg ? d.msg : 'None'}
 
-(Sent from Beautify Your Event website)';
+(Sent from Beautify Your Event website)`;
   window.open('https://wa.me/2348107205425?text=' + encodeURIComponent(message), '_blank');
 }
 function sendEmail() {
   var d = getFormData(); if (!d) return;
   var subject = 'Event Booking - ' + d.evt + ' (' + d.name + ')';
-  var body = 'Assalamu Alaikum,
+    var body = `Assalamu Alaikum,
 
 I would like to book an event.
 
-Name: ' + d.name + '
-Phone: ' + d.phone + '
-Event: ' + d.evt + '
-Date: ' + (d.date||'Not specified') + '
-Location: ' + (d.loc||'Not specified') + '
-Package: ' + (d.pkg||'To be discussed') + '
-' + (d.msg?'Message: '+d.msg:'') + '
+Name: ${d.name}
+Phone: ${d.phone}
+Event Type: ${d.evt}
+Date: ${d.date || 'Not specified'}
+Location: ${d.loc || 'Not specified'}
+Package: ${d.pkg || 'To be discussed'}
+Message: ${d.msg ? d.msg : 'None'}
 
 Jazakumullahu Khayran.
-' + d.name;
+${d.name}`;
   window.location.href = 'mailto:abdulrazaqmaryam005@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 }
 </script>
